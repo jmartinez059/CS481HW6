@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    xmlns:local="clr-namespace:Homework6"
+    xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
+    x:Class="Homework6.Homework6Page">
+
+    <!--ScrollView-->
+        <StackLayout Padding="10">
+            <Label Text="Pick a person to see where they live" FontSize="Large"/>
+            <Picker
+                x:Name="PickerPerson"
+                Title="Directory"
+                SelectedIndexChanged="Handle_SelectedIndexChanged"/>
+            <maps:Map x:Name="MyMap"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="FillAndExpand"
+                WidthRequest="320"
+                HieghtRequest="300"
+                IsShowingUser="true"
+                MapType="Satellite "/>
+        </StackLayout>
+    <!--/ScrollView-->
+</ContentPage>
