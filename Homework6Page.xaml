@@ -20,15 +20,6 @@
                 HeightRequest="300"
                 IsShowingUser="true"
                 MapType="Satellite"/>
-            <Picker
-                x:Name="PickerMapType"
-                Title="Map Type" 
-                PropertyChanged="Handle_PropertyChanged">
-                <Picker.Items>
-                    <x:String>Satellite</x:String>
-                    <x:String>Street</x:String>
-                    <x:String>Hybrid</x:String>
-                </Picker.Items>
             </Picker>
         </StackLayout>
     <!--/ScrollView-->
