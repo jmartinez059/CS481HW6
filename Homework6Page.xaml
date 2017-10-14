@@ -10,15 +10,26 @@
             <Label Text="Pick a person to see where they live" FontSize="Large"/>
             <Picker
                 x:Name="PickerPerson"
-                Title="Directory"
+                Title="Directory" 
+                ItemDisplayBinding="{Binding firstName}"
                 SelectedIndexChanged="Handle_SelectedIndexChanged"/>
             <maps:Map x:Name="MyMap"
                 HorizontalOptions="FillAndExpand"
                 VerticalOptions="FillAndExpand"
                 WidthRequest="320"
-                HieghtRequest="300"
+                HeightRequest="300"
                 IsShowingUser="true"
-                MapType="Satellite "/>
+                MapType="Satellite"/>
+            <Picker
+                x:Name="PickerMapType"
+                Title="Map Type" 
+                PropertyChanged="Handle_PropertyChanged">
+                <Picker.Items>
+                    <x:String>Satellite</x:String>
+                    <x:String>Street</x:String>
+                    <x:String>Hybrid</x:String>
+                </Picker.Items>
+            </Picker>
         </StackLayout>
     <!--/ScrollView-->
 </ContentPage>
