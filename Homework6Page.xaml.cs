@@ -25,19 +25,22 @@ namespace Homework6
 					lati = 33.2459702, longi = -117.3200064},
 				new Person() {firstName = "Virginia", lastName = "Longformore", address = "2601 Jefferson St, Carlsbad, CA 92008",
 					lati = 33.166077, longi = -117.34831},
-
+				new Person() {firstName = "Mike", lastName = "Rutherford", address = "2604 Ivy Rd, Oceanside, CA 92054", 
+					lati = "33.1847695", longi = "-117.332972"},
+				new Person() {firstName = "Donald", lastName = "Cook", address = "825 Sinkler Way, Vista, CA", 
+					lati = "33.1905649", longi = "-117.2376982"},
 			};
 			PickerPerson.ItemsSource = personList;
 		}
 
 		public void Handle_SelectedIndexChanged(object sender, System.EventArgs e)
 		{
-            var person = (Person)PickerPerson.SelectedItem;
+            		var person = (Person)PickerPerson.SelectedItem;
 			var longitude = person.longi;
 			var latitude = person.lati;
 			Set_Map_Location(latitude, longitude);
 
-            var pin = new Pin()
+            		var pin = new Pin()
 			{
 				Position = new Position(latitude, longitude),
 				Label = person.firstName,
@@ -49,25 +52,7 @@ namespace Homework6
 		private void Set_Map_Location(double latitude, double longitude)
 		{
 			var newLocation = MapSpan.FromCenterAndRadius(new Position(latitude, longitude), Distance.FromMiles(1));
-			MyMap.MoveToRegion(newLocation);
-
-        }
-
-        void Handle_PropertyChanged(object sender, System.EventArgs e)
-        {
-            var mapType = (String)PickerMapType.SelectedItem;
-            if(mapType == "Satellite")
-            {
-                MyMap.MapType = MapType.Satellite;
-            }
-            if (mapType == "Street")
-            {
-                MyMap.MapType = MapType.Street;
-            }
-            else
-            {
-                MyMap.MapType = MapType.Hybrid;
-            }
-        }
+			MyMap.MoveToRegion(newLocation);		
+        	}
     }
 }
